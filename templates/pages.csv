@@ -1,0 +1,3 @@
+title,handle,body_html,is_published,template_suffix,metafield_namespace,metafield_key,metafield_value,metafield_type
+À propos,a-propos,"<h2>Notre histoire</h2><p>Sundusi a été fondée...</p>",true,,,,,
+Contact,contact,"<p>Contactez-nous à hello@sundusi.com</p>",true,contact,,,,

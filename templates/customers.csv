@@ -1,0 +1,2 @@
+email,first_name,last_name,phone,tags,accepts_email_marketing,accepts_sms_marketing,tax_exempt,address1,address2,city,province,province_code,zip,country_code,note,metafield_namespace,metafield_key,metafield_value,metafield_type
+jane@example.com,Jane,Doe,+33612345678,"vip,wholesale",true,false,false,123 Rue de Paris,,Paris,Ile-de-France,IDF,75001,FR,Cliente importante,custom,tier,gold,single_line_text_field

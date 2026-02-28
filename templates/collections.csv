@@ -1,0 +1,3 @@
+title,handle,description_html,type,sort_order,image_src,image_alt,rule_column,rule_relation,rule_condition,rules_disjunctive,product_handles,seo_title,seo_description,metafield_namespace,metafield_key,metafield_value,metafield_type
+Collection Été,collection-ete,"<p>Nos coups de cœur pour l'été</p>",smart,BEST_SELLING,https://example.com/summer.jpg,Ambiance été,TAG,EQUALS,ete,false,,Collection Été - Sundusi,Découvrez nos essentiels d'été,,,,
+Coups de Cœur,coups-de-coeur,"<p>Sélection de notre équipe</p>",custom,MANUAL,,,,,,,classic-tshirt|linen-shirt,Coups de Cœur - Sundusi,Nos favoris,,,,

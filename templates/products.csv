@@ -1,0 +1,5 @@
+handle,title,description_html,vendor,product_type,tags,status,option1_name,option1_value,option2_name,option2_value,option3_name,option3_value,variant_sku,variant_price,variant_compare_at_price,variant_barcode,variant_weight,variant_weight_unit,variant_inventory_qty,variant_inventory_policy,image_src,image_alt,metafield_namespace,metafield_key,metafield_value,metafield_type
+classic-tshirt,Classic T-Shirt,"<p>Un t-shirt confortable en coton</p>",Sundusi,Apparel,"coton,basics",active,Taille,S,Couleur,Bleu,,,TS-BLU-S,29.99,39.99,,200,g,50,deny,https://example.com/img1.jpg,T-shirt bleu,custom,material,100% Coton,single_line_text_field
+classic-tshirt,,,,,,,,M,,Bleu,,,TS-BLU-M,29.99,39.99,,200,g,30,deny,,,,,,,
+classic-tshirt,,,,,,,,L,,Bleu,,,TS-BLU-L,29.99,39.99,,200,g,20,deny,,,,,,,
+classic-tshirt,,,,,,,,S,,Rouge,,,TS-RED-S,29.99,39.99,,200,g,40,deny,https://example.com/img2.jpg,T-shirt rouge,,,,,
