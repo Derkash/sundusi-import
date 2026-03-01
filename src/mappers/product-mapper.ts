@@ -6,13 +6,7 @@ import type {
   FileInput,
   MetafieldInput,
 } from '../types/shopify.js';
-
-const WEIGHT_UNIT_MAP: Record<string, ProductVariantSetInput['weightUnit']> = {
-  g: 'GRAMS',
-  kg: 'KILOGRAMS',
-  oz: 'OUNCES',
-  lb: 'POUNDS',
-};
+import { enrichTagsWithParents } from '../core/category-hierarchy.js';
 
 const STATUS_MAP: Record<string, ProductSetInput['status']> = {
   active: 'ACTIVE',
@@ -52,9 +46,11 @@ export function mapProductRows(rows: ValidatedProductRow[]): ProductSetInput[] {
       ...(firstRow.description_html && { descriptionHtml: firstRow.description_html }),
       ...(firstRow.vendor && { vendor: firstRow.vendor }),
       ...(firstRow.product_type && { productType: firstRow.product_type }),
-      ...(firstRow.tags && { tags: firstRow.tags.split(',').map((t) => t.trim()) }),
+      ...(firstRow.tags && { tags: enrichTagsWithParents(firstRow.tags.split(',').map((t) => t.trim())) }),
       ...(firstRow.status && { status: STATUS_MAP[firstRow.status] }),
-      ...(options.length > 0 && { productOptions: options }),
+      productOptions: options.length > 0
+        ? options
+        : [{ name: 'Title', position: 1, values: [{ name: 'Default Title' }] }],
       variants,
       ...(files.length > 0 && { files }),
       ...(metafields.length > 0 && { metafields }),
@@ -116,14 +112,18 @@ function buildVariant(
     }
   }
 
+  // productSet requires optionValues on every variant.
+  // If no options are defined, use the Shopify default "Title" / "Default Title".
+  if (optionValues.length === 0) {
+    optionValues.push({ optionName: 'Title', name: 'Default Title' });
+  }
+
   const variant: ProductVariantSetInput = {
     ...(row.variant_price && { price: row.variant_price }),
     ...(row.variant_compare_at_price && { compareAtPrice: row.variant_compare_at_price }),
     ...(row.variant_sku && { sku: row.variant_sku }),
     ...(row.variant_barcode && { barcode: row.variant_barcode }),
-    ...(row.variant_weight && { weight: parseFloat(row.variant_weight) }),
-    ...(row.variant_weight_unit && { weightUnit: WEIGHT_UNIT_MAP[row.variant_weight_unit] }),
-    ...(optionValues.length > 0 && { optionValues }),
+    optionValues,
   };
 
   return variant;
